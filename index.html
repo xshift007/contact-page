@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Contacto - Nicolás Sánchez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; background: #f5f5f5; color: #333; }
+    .container { max-width: 800px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    header { text-align: center; margin-bottom: 1.5rem; }
+    header img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+    header h1 { margin-top: 0.5rem; font-size: 2rem; }
+    header p { font-size: 1rem; color: #666; }
+    form { display: grid; gap: 1rem; }
+    label { font-weight: 700; }
+    input, textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font: inherit; }
+    button { padding: 0.75rem; font-size: 1rem; background: #007acc; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #005fa3; }
+    .social { text-align: center; margin-top: 1.5rem; }
+    .social a { margin: 0 0.5rem; text-decoration: none; color: #007acc; font-weight: 700; }
+    @media (max-width: 500px) {
+      header h1 { font-size: 1.5rem; }
+      button { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="https://via.placeholder.com/120" alt="Foto de perfil">
+      <h1>Nicolás Sánchez</h1>
+      <p>Ingeniero Civil en Informática | Desarrollador Full-Stack</p>
+    </header>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <div class="social">
+      <p>Sígueme en:</p>
+      <a href="https://github.com/tu-usuario" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/tu-usuario" target="_blank">LinkedIn</a> |
+      <a href="mailto:tu@correo.com">Email</a>
+    </div>
+  </div>
+</body>
+</html>
