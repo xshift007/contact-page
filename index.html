@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nicolás Andrés Sánchez Aliaga | Full-Stack, IA y Automatización</title>
+
+  <meta 
+    name="description" 
+    content="Portafolio profesional de Nicolás Andrés Sánchez Aliaga: desarrollo full-stack, inteligencia artificial, automatización, ciencia de datos, backend, bases de datos y soluciones tecnológicas."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg-primary: #07111f;
+      --bg-secondary: #0d1b2e;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.15);
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.20), transparent 34%),
+        linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 22px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1rem;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .profile-card,
+    .section-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-card {
+      padding: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #fde68a;
+      border: 1px solid rgba(250, 204, 21, 0.28);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+      margin-bottom: 22px;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .hero-description strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+    }
+
+    .btn-secondary {
+      color: var(--text-primary);
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .quick-info article {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .quick-info strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .quick-info span {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .profile-card {
+      padding: 26px;
+      text-align: center;
+    }
+
+    .profile-image {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 22px;
+      border: 4px solid rgba(255, 255, 255, 0.86);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+    }
+
+    .profile-card h2 {
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .profile-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.8);
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-card {
+      padding: 34px;
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+    }
+
+    .section-header span {
+      display: block;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .about-text {
+      color: var(--text-secondary);
+    }
+
+    .about-text p + p {
+      margin-top: 14px;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-item {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    .focus-item strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .focus-item span {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-category {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.052);
+    }
+
+    .skill-category h3 {
+      font-size: 1.04rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.052);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.085);
+      border-color: rgba(250, 204, 21, 0.32);
+    }
+
+    .project-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .project-card small {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-box {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.052);
+    }
+
+    .contact-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-box a,
+    .contact-box span {
+      color: var(--text-secondary);
+      word-break: break-word;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.052);
+    }
+
+    .form-group {
+      display: grid;
+      gap: 7px;
+    }
+
+    label {
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+      padding: 13px 14px;
+      background: rgba(7, 17, 31, 0.62);
+      color: var(--text-primary);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #64748b;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(250, 204, 21, 0.72);
+      box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.12);
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    .footer {
+      margin-top: 34px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, var(--max-width));
+        padding-top: 18px;
+      }
+
+      .navbar {
+        border-radius: 22px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        margin-top: 32px;
+      }
+
+      .hero-card,
+      .section-card,
+      .profile-card {
+        padding: 24px;
+        border-radius: 22px;
+      }
+
+      .quick-info {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-image {
+        width: 170px;
+        height: 170px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">Nicolás<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="#perfil">Perfil</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Enfoque</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+      <div class="hero-card">
+        <div class="eyebrow">Full-Stack Developer · IA · Automatización</div>
+
+        <h1>
+          Nicolás Andrés <br>
+          <span class="highlight">Sánchez Aliaga</span>
+        </h1>
+
+        <p class="hero-description">
+          Estudiante avanzado de <strong>Ingeniería Civil en Informática</strong> en la 
+          Universidad de Santiago de Chile, enfocado en construir soluciones reales combinando 
+          <strong>desarrollo web, backend, inteligencia artificial, agentes LLM, ciencia de datos, 
+          automatización y arquitectura de software</strong>.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contacto">Contactarme</a>
+          <a class="btn btn-secondary" href="https://github.com/xshift007" target="_blank" rel="noopener noreferrer">
+            Ver GitHub
+          </a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/nicolás-andrés-sánchez-aliaga-b8a7031ba" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="quick-info">
+          <article>
+            <strong>Área principal</strong>
+            <span>IA aplicada y desarrollo full-stack</span>
+          </article>
+
+          <article>
+            <strong>Ubicación</strong>
+            <span>Santiago, Chile</span>
+          </article>
+
+          <article>
+            <strong>Interés profesional</strong>
+            <span>Soluciones tecnológicas con impacto</span>
+          </article>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Tarjeta de perfil">
+        <img 
+          class="profile-image" 
+          src="perfil.jpg" 
+          alt="Foto de perfil de Nicolás Andrés Sánchez Aliaga"
+        >
+
+        <h2>Nicolás A. Sánchez Aliaga</h2>
+
+        <p>
+          Desarrollador con interés en IA, automatización, backend, ciencia de datos,
+          arquitectura de software y productos digitales escalables.
+        </p>
+
+        <div class="status">
+          <span class="status-dot"></span>
+          Disponible para proyectos y oportunidades
+        </div>
+      </aside>
+    </section>
+
+    <section id="perfil">
+      <div class="section-card">
+        <div class="section-header">
+          <span>Perfil profesional</span>
+          <h2>Construyo soluciones desde la idea hasta la implementación.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Mi perfil combina fundamentos de ingeniería informática con una orientación práctica
+              hacia el desarrollo de productos tecnológicos. Me interesa especialmente diseñar sistemas
+              que automaticen procesos, reduzcan fricción operativa y permitan tomar mejores decisiones
+              usando datos e inteligencia artificial.
+            </p>
+
+            <p>
+              He trabajado y estudiado áreas como desarrollo backend, frontend, bases de datos,
+              ciencia de datos, machine learning, arquitectura de software, agentes basados en LLMs,
+              automatización de flujos, visualización de información y análisis geoespacial.
+            </p>
+
+            <p>
+              Me motiva transformar problemas poco estructurados en soluciones técnicas claras:
+              desde una arquitectura inicial, hasta un MVP funcional, validable y preparado para crecer.
+            </p>
+          </div>
+
+          <div class="focus-list">
+            <article class="focus-item">
+              <strong>Inteligencia Artificial aplicada</strong>
+              <span>Agentes LLM, automatización, asistentes inteligentes, clasificación, modelos predictivos y análisis de datos.</span>
+            </article>
+
+            <article class="focus-item">
+              <strong>Desarrollo Full-Stack</strong>
+              <span>Aplicaciones web con frontend moderno, APIs, servicios backend y persistencia en bases de datos.</span>
+            </article>
+
+            <article class="focus-item">
+              <strong>Arquitectura y producto</strong>
+              <span>Diseño de MVPs, separación por capas, integración de servicios y definición de flujos de decisión.</span>
+            </article>
+
+            <article class="focus-item">
+              <strong>Datos y visualización</strong>
+              <span>Procesamiento, análisis, dashboards, métricas, experimentos y comunicación de resultados técnicos.</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <div class="section-card">
+        <div class="section-header">
+          <span>Stack y habilidades</span>
+          <h2>Herramientas y áreas técnicas que manejo o estoy profundizando.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-category">
+            <h3>Lenguajes y desarrollo</h3>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">SQL</span>
+            </div>
+          </article>
+
+          <article class="skill-category">
+            <h3>Backend y arquitectura</h3>
+            <div class="tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">JPA</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Arquitectura por capas</span>
+              <span class="tag">Microservicios</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Git</span>
+            </div>
+          </article>
+
+          <article class="skill-category">
+            <h3>Frontend y producto</h3>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Componentes</span>
+              <span class="tag">UX básica</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">Landing Pages</span>
+              <span class="tag">MVP</span>
+            </div>
+          </article>
+
+          <article class="skill-category">
+            <h3>IA y automatización</h3>
+            <div class="tags">
+              <span class="tag">LLMs</span>
+              <span class="tag">Agentes IA</span>
+              <span class="tag">Prompt Engineering</span>
+              <span class="tag">n8n</span>
+              <span class="tag">Automatización</span>
+              <span class="tag">Chatbots</span>
+            </div>
+          </article>
+
+          <article class="skill-category">
+            <h3>Datos y Machine Learning</h3>
+            <div class="tags">
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Clasificación</span>
+              <span class="tag">Regresión</span>
+              <span class="tag">Power BI</span>
+            </div>
+          </article>
+
+          <article class="skill-category">
+            <h3>Bases de datos y geodatos</h3>
+            <div class="tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">PostGIS</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">QGIS</span>
+              <span class="tag">GeoInformática</span>
+              <span class="tag">Análisis espacial</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="section-card">
+        <div class="section-header">
+          <span>Intereses y líneas de trabajo</span>
+          <h2>Áreas donde busco crear valor profesional.</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Asistentes inteligentes y agentes LLM</h3>
+            <p>
+              Diseño de sistemas capaces de interpretar información, coordinar tareas, responder consultas
+              y apoyar la toma de decisiones en canales como web, Discord, Slack u otras plataformas.
+            </p>
+            <small>IA aplicada · Automatización · Integraciones</small>
+          </article>
+
+          <article class="project-card">
+            <h3>Aplicaciones web full-stack</h3>
+            <p>
+              Desarrollo de aplicaciones con frontend, backend, autenticación, servicios REST,
+              persistencia de datos y arquitectura clara para evolucionar desde un MVP.
+            </p>
+            <small>React · Spring Boot · APIs · Bases de datos</small>
+          </article>
+
+          <article class="project-card">
+            <h3>Ciencia de datos y visualización</h3>
+            <p>
+              Análisis de datos, entrenamiento de modelos, evaluación de métricas, interpretación de resultados
+              y creación de visualizaciones útiles para comunicar hallazgos.
+            </p>
+            <small>Python · ML · Power BI · Estadística</small>
+          </article>
+
+          <article class="project-card">
+            <h3>Soluciones con impacto social y operativo</h3>
+            <p>
+              Interés en sistemas que reduzcan retrasos, automaticen procesos administrativos,
+              mejoren la coordinación de equipos y faciliten el acceso a información relevante.
+            </p>
+            <small>Automatización · Procesos · Producto</small>
+          </article>
+
+          <article class="project-card">
+            <h3>Geoinformática y análisis espacial</h3>
+            <p>
+              Uso de herramientas SIG, datos geoespaciales, análisis multitemporal y procesamiento raster/vectorial
+              para estudiar fenómenos territoriales y ambientales.
+            </p>
+            <small>QGIS · PostGIS · Python · Datos espaciales</small>
+          </article>
+
+          <article class="project-card">
+            <h3>Arquitectura de software</h3>
+            <p>
+              Definición de componentes, separación de responsabilidades, diseño de servicios,
+              flujos de datos y bases técnicas para productos mantenibles.
+            </p>
+            <small>Diseño técnico · MVP · Escalabilidad</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="section-card">
+        <div class="section-header">
+          <span>Contacto</span>
+          <h2>Hablemos sobre proyectos, oportunidades o colaboración.</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-box">
+              <strong>Correo</strong>
+              <a href="mailto:nicolas.sanchez.al@usach.cl">nicolas.sanchez.al@usach.cl</a>
+            </div>
+
+            <div class="contact-box">
+              <strong>GitHub</strong>
+              <a href="https://github.com/xshift007" target="_blank" rel="noopener noreferrer">
+                github.com/xshift007
+              </a>
+            </div>
+
+            <div class="contact-box">
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/nicolás-andrés-sánchez-aliaga-b8a7031ba" target="_blank" rel="noopener noreferrer">
+                Perfil profesional de LinkedIn
+              </a>
+            </div>
+
+            <div class="contact-box">
+              <strong>Enfoque actual</strong>
+              <span>IA aplicada, automatización, full-stack, datos y arquitectura de soluciones.</span>
+            </div>
+          </div>
+
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo contacto desde portafolio de Nicolás Sánchez">
+
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Tu nombre" 
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="tu.correo@ejemplo.com" 
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="6" 
+                placeholder="Cuéntame sobre tu proyecto, propuesta u oportunidad..." 
+                required
+              ></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        © 2026 Nicolás Andrés Sánchez Aliaga. Desarrollo, inteligencia artificial y soluciones digitales.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
